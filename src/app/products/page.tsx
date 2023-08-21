@@ -6,33 +6,21 @@ import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
 import { IProduct, getProductData } from "../../../hooks/getProductData";
 import Loader from "../male/components/Loader";
+import Link from "next/link";
+import FetchData from "../../../sanity/FetchData";
 
-const ProductsData = () => {
-  const [loading, setLoading] = useState(true); // Add loading state
-  const [products, setProducts] = useState<IProduct[]>([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const product = await getProductData();
-        setProducts(product);
-        console.log(product);
-        setLoading(false);
-      } catch (error) {
-        console.log("Error fetching Products product data:", error);
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
+export default async function page(){
+  const data = await FetchData();
+  console.log(data)
   return (
     <div className="mt-20">
       <Wrapper>
-      {loading ? (
-          <Loader /> // Display the loader while data is being fetched
-        ) : (
+     
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 justify-center items-center">
-          {products.map((item) => (
-            <div key={item._id} className=" cursor-pointer">
+          {data.map((item:any, index:any) => {
+            console.log('Item:', item)
+            return(
+              <Link href="/product/[slug]" as={`/product/${item.slug.current}`} key={index} className="cursor-pointer">
               <Image
                 src={urlForImage(item.image).width(1440).url()}
                 alt="product"
@@ -42,13 +30,14 @@ const ProductsData = () => {
               ></Image>
               <h3 className="py-4 font-semibold text-lg">{item.title}</h3>
               <p className="font-semibold text-lg">${item.price}</p>
-            </div>
-          ))}
+            </Link>
+            )
+          })}
         </div>
-        )}
+ 
       </Wrapper>
     </div>
   );
 };
 
-export default ProductsData;
+

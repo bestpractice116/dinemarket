@@ -1,17 +1,8 @@
 import { client } from "@/app/lib/sanityClient";
-import { Image } from "sanity";
+import { Image, Slug } from "sanity";
 
 export const getMaleData = async () => {
-  const res =
-    await client.fetch(`*[_type == 'product' && category->name == 'Male'] {
-    _id,
-    title,
-    image,
-    price,
-    category->{
-      name
-    }
-  }`);
+  const res = await client.fetch(`*[_type == 'product' && category->name == 'Male']`);
   return res;
 };
 
@@ -23,4 +14,5 @@ export interface getMaleDataProps {
   category: {
     name: string;
   };
+  slug: any;
 }

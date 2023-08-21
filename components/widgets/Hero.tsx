@@ -34,21 +34,23 @@ const Hero = () => {
         <div className="flex md:flex-row flex-col">
           {/* left  */}
           <div className="basis-[100%] md:basis-[50%] items-center pt-[5rem]">
-            {Banner.map((item) => (
-              <div key={item.id}>
-                <span className="bg-[#E1EDFF] text-[#0000FF] font-bold py-3 px-6 rounded-md">
-                  {item.sale}
-                </span>
-                <h1 className="font-bold text-primary-color-text text-[40px] md:text-[56px] leading-[55px] py-7 md:py-11">
-                  {item.herotext}
-                </h1>
-                <p className="text-[#666666] md:pr-[10rem]">{item.heropara}</p>
-                <button className="mt-11 font-bold text-white bg-primary-color-text flex  py-[18px] px-6 border-solid border-2 border-gray-500">
-                  <CgShoppingCart size={25} className="text-white mr-3 " />
-                  {item.buttontext}
-                </button>
-              </div>
-            ))}
+            <div>
+              <span className="bg-[#E1EDFF] text-[#0000FF] font-bold py-3 px-6 rounded-md">
+                Sale 70%
+              </span>
+              <h1 className="font-bold text-primary-color-text text-[40px] md:text-[56px] leading-[55px] py-7 md:py-11">
+                An Industrial Take on Streetwear
+              </h1>
+              <p className="text-[#666666] md:pr-[10rem]">
+                Anyone can beat you but no one can beat your outfit as long as
+                you wear Dine outfits.
+              </p>
+              <button className="mt-11 font-bold text-white bg-primary-color-text flex  py-[18px] px-6 border-solid border-2 border-gray-500">
+                <CgShoppingCart size={25} className="text-white mr-3 " />
+                Start Shopping
+              </button>
+            </div>
+
             <div className="flex space-x-6 md:space-x-12 mt-[2rem] md:mt-[8rem]">
               <Image src={feature1} alt="logo" height={100} width={110}></Image>
               <Image src={feature2} alt="logo" height={110} width={110}></Image>

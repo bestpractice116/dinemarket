@@ -8,6 +8,7 @@ import "swiper/css";
 
 import { useEffect, useState } from "react";
 import { IProduct, getProductData } from "../../hooks/getProductData";
+import Link from "next/link";
 
 const Products = () => {
   const [data, setData] = useState<IProduct[]>([]);
@@ -49,7 +50,7 @@ const Products = () => {
         >
           {data.map((items) => (
             <SwiperSlide key={items._id}>
-              <div className="hover:-translate-y-3 justify-around duration-300 cursor-pointer mt-16">
+              <Link href={`/product/${items.slug.current}`} className="hover:-translate-y-3 justify-around duration-300 cursor-pointer mt-16 ">
                 <Image
                   src={urlForImage(items.image).width(1440).url()}
                   alt="product"
@@ -62,7 +63,7 @@ const Products = () => {
                   <p>${items.price}</p>
                   {/* <p>{items.category.name}</p> */}
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

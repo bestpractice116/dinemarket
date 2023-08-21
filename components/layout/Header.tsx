@@ -87,7 +87,7 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="What are you looking for"
-                className="w-[350px] pr-36 py-3 border-none"
+                className="w-[350px] pr-36 py-3 border-none focus:outline-none"
               />
             </div>
             {/* cart  */}

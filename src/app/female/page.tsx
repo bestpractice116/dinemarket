@@ -8,6 +8,7 @@ import {
 import Image from "next/image";
 import { urlForImage } from "../../../sanity/lib/image";
 import Loader from "../male/components/Loader";
+import Link from "next/link";
 
 const FemaleData = () => {
   const [female, setFemale] = useState<getFemaleDataProps[]>([]);
@@ -34,7 +35,7 @@ const FemaleData = () => {
         ) : (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-16 justify-center items-center">
           {female.map((item) => (
-            <div key={item._id} className=" cursor-pointer">
+            <Link href={`/product/${item.slug.current}`} key={item._id} className=" cursor-pointer">
               <Image
                 src={urlForImage(item.image).width(1440).url()}
                 alt="product"
@@ -44,7 +45,7 @@ const FemaleData = () => {
               ></Image>
               <h3 className="py-4 font-semibold text-lg">{item.title}</h3>
               <p className="font-semibold text-lg">${item.price}</p>
-            </div>
+            </Link>
           ))}
         </div>
         )}
