@@ -1,9 +1,9 @@
 import Footer from "../../components/layout/Footer";
 import Header from "../../components/layout/Header";
 import "./globals.css";
-import { Sora } from "next/font/google";
+import {  Manrope } from "next/font/google";
 
-const font = Sora({ subsets: ["latin"] });
+const font = Manrope({ subsets: ["latin"]});
 
 export const metadata = {
   title: "Dine Market",
@@ -16,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={font.className}>
-      <body>
+    <html lang="en" >
+      <body className={font.className}>
         <Header />
         {children}
         <Footer/>

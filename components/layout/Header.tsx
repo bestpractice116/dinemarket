@@ -92,7 +92,7 @@ const Header = () => {
             </div>
             {/* cart  */}
             <button
-              onClick={increaseNumber}
+              onClick={()=> router.push('/cart')}
               className="hover:scale-110 duration-200 ease-in"
             >
               <div className="bg-[#F1F1F1] p-3 rounded-full relative">
@@ -165,7 +165,7 @@ const Header = () => {
                 </div>
                 {/* cart  */}
                 <button
-                  onClick={increaseNumber}
+                  onClick={()=> router.push('/cart')}
                   className="hover:scale-110 duration-200 ease-in justify-center flex items-center"
                 >
                   <div className="bg-[#F1F1F1] p-3 w-[48px]  rounded-full relative mt-5 ">

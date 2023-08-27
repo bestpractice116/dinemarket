@@ -36,6 +36,7 @@ export default function ProductDetails({
           product_price: filteredData.price * quantity,
           product_quantity: quantity,
           image_url: urlForImage(filteredData.image).url(),
+          
         }),
       });
 
@@ -45,6 +46,7 @@ export default function ProductDetails({
       console.log("error", error);
     } finally {
       setIsLoading(false); // Set loading state back to false after the API call
+      
     }
   };
 
