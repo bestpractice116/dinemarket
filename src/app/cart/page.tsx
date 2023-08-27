@@ -7,7 +7,7 @@ const page = async () => {
     const setCookies = cookies();
     const uid = setCookies.get('user_id')?.value;
   const response = await fetch(
-    `https://ecommerceproject-red.vercel.app/api/cart?user_id=${uid}`
+    `https://ecommerceproject-red.vercel.app/cart?user_id=${uid}`
   );
   const data = await response.json();
   //   console.log(data);
